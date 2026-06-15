@@ -12,7 +12,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = Task::orderBy('creationDate', 'desc')->get();
+
+        return view('tasks.index', compact('tasks'));
     }
 
     /**
@@ -20,7 +22,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.create');
     }
 
     /**
