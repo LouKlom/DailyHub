@@ -12,9 +12,10 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::orderBy('creationDate', 'desc')->get();
+        $activeTasks = Task::where('active', TRUE)->orderBy('creationDate', 'desc')->get();
+        $inactiveTasks = Task::where('active', FALSE)->orderBy('creationDate', 'desc')->get();
 
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.index', compact(['activeTasks', 'inactiveTasks']));
     }
 
     /**
@@ -34,6 +35,7 @@ class TaskController extends Controller
         $task->title = $request->input('title');
         $task->description = $request->input('description');
         $task->creationDate = date('Y-m-d');
+        $task->active = 1;
 
         $task->save();
 
@@ -69,7 +71,9 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return redirect(route('tasks.index'));
     }
 
 
@@ -77,8 +81,17 @@ class TaskController extends Controller
     /**
      * Change status of a task
      */
-    public function finish(Task $task)
+    public function finish(Request $request, Task $task)
     {
+        if($task->active == 1){
+            $task->active = 0;
+        }
+        else {
+            $task->active = 1;
+        }
 
+        $task->save();
+
+        return redirect(route('tasks.index'));
     }
 }

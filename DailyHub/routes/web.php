@@ -16,3 +16,5 @@ Route::get('/testing', function () {
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 Route::post('/tasks/create', [TaskController::class, 'store'])->name('tasks.store');
+Route::put('/tasks/{task}/finish', [TaskController::class, 'finish'])->name('tasks.finish');
+Route::put('/tasks/{task}/delete', [TaskController::class, 'destroy'])->name('tasks.destroy');
