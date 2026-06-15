@@ -30,7 +30,14 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = new Task();
+        $task->title = $request->input('title');
+        $task->description = $request->input('description');
+        $task->creationDate = date('Y-m-d');
+
+        $task->save();
+
+        return redirect(route('tasks.index'));
     }
 
     /**
@@ -63,5 +70,15 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         //
+    }
+
+
+
+    /**
+     * Change status of a task
+     */
+    public function finish(Task $task)
+    {
+
     }
 }

@@ -17,13 +17,13 @@
                 </div>
                 
                 <nav class="mt-6 px-4 space-y-2">
-                    <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg bg-slate-900 text-white transition">
+                    <a href="{{ route('dashboard') }}" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg bg-slate-900 text-white transition">
                         Dashboard
                     </a>
-                    <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition">
+                    <a href="{{ route('tasks.index') }}" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition">
                         My Tasks
                     </a>
-                    <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition">
+                    <a href="{{ route('testing') }}" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition">
                         Testing
                     </a>
                 </nav>
