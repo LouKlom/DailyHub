@@ -47,7 +47,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -55,7 +55,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('tasks.edit', compact('task'));
     }
 
     /**
@@ -63,7 +63,13 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $task->title = $request->input('title');
+        $task->description = $request->input('description');
+
+
+        $task->save();
+
+        return redirect(route('tasks.index'));
     }
 
     /**
