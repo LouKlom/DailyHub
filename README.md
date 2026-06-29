@@ -5,7 +5,7 @@
 
 A minimalist daily manager built with Laravel to monitor tasks, financial income and expenses
 
-## ✨ Features
+## Features
 
 - **Unified Ledger:** Track both incomes and expenses inside a single, high-performance database model.
 - **Dynamic Categories:** Organize your cash flow with custom categories (Food, Rent, Salary).
@@ -13,7 +13,7 @@ A minimalist daily manager built with Laravel to monitor tasks, financial income
 - **Real-time Balance:** Instantly see your net profit and safe-to-spend limits.
 - **More to come**
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 Follow these quick steps to get the project running locally.
 
@@ -23,3 +23,23 @@ Follow these quick steps to get the project running locally.
 - SQLite
 
 ### Setup Guide
+
+```bash
+    git clone https://github.com/LouKlom/DailyHub
+    cd DailyHub
+```
+
+### Install composer
+```bash
+    composer install
+```
+
+### Run the migrations
+```bash
+    php artisan migrate:fresh
+```
+
+### Laucnh server
+```bash
+    php artisan serve
+```
