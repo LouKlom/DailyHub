@@ -30,6 +30,8 @@
                                     See More
                                 </button>
                             </a>
+                                <form method="GET" action="{{ route('tasks.edit', $task) }}">
+                                    @csrf
                                 <button title="Edit" class="p-2 bg-indigo-50 text-indigo-600 rounded-lg hover:bg-indigo-100 transition text-xs font-medium">
                                     Edit
                                 </button>
@@ -68,6 +70,11 @@
                         <td class="p-4 text-sm text-gray-500">{{$task->creationDate}}</td>
                         <td class="p-4 text-right">
                             <div class="inline-flex gap-1.5">
+                                <a href="{{ route('tasks.show', $task) }}">
+                                    <button title="See" class="p-2 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200 transition text-xs font-medium">
+                                        See More
+                                    </button>
+                                </a>
                                 <form method="POST" action="{{ route('tasks.finish', $task) }}">
                                     @csrf
                                     @method("PUT")

@@ -23,6 +23,9 @@
                     <a href="{{ route('tasks.index') }}" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition">
                         My Tasks
                     </a>
+                    <a href="{{ route('financial.index') }}" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition">
+                        Finances
+                    </a>
                     <a href="{{ route('testing') }}" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition">
                         Testing
                     </a>
