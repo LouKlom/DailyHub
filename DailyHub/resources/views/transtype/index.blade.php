@@ -71,8 +71,15 @@
                                 <form method="POST" action="{{ route('transtype.activate', $type) }}">
                                     @csrf
                                     @method("PUT")
-                                    <button title="Desactivate" class="p-2 bg-rose-50 text-rose-600 rounded-lg hover:bg-rose-100 transition text-xs font-medium">
-                                        activate
+                                    <button title="Activate" class="p-2 bg-slate-100 text-slate-600 rounded-lg hover:bg-slate-200 transition text-xs font-medium">
+                                        Activate
+                                    </button>
+                                </form>
+                                <form method="POST" action="{{ route('transtype.destroy', $type) }}">
+                                    @csrf
+                                    @method("PUT")
+                                    <button title="Destroy" class="p-2 bg-rose-50 text-rose-600 rounded-lg hover:bg-rose-100 transition text-xs font-medium">
+                                        Delete
                                     </button>
                                 </form>
                             </div>

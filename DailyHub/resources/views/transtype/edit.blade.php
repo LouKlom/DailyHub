@@ -4,7 +4,7 @@
 
 
         <div class="max-w-2xl bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <form action="{{ route('transtype.store') }}" method="POST" class="space-y-6">
+            <form action="{{ route('transtype.update', $type) }}" method="POST" class="space-y-6">
                 @csrf
                 <div>
                     <label for="title" class="block text-sm font-medium text-gray-700 mb-1">

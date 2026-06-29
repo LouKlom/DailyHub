@@ -37,6 +37,8 @@ Route::get('/finance/types', [TransactionTypesController::class, 'index'])->name
 Route::get('/finance/types/create', [TransactionTypesController::class, 'create'])->name('transtype.create');
 Route::post('/finance/types/store', [TransactionTypesController::class, 'store'])->name('transtype.store');
 Route::get('/finance/types/edit/{type}', [TransactionTypesController::class, 'edit'])->name('transtype.edit');
+Route::put('/finance/types/delete/{type}', [TransactionTypesController::class, 'destroy'])->name('transtype.destroy');
+Route::post('/finance/types/update/{type}', [TransactionTypesController::class, 'update'])->name('transtype.update');
 
 
 Route::put('/finance/types/activate/{type}', [TransactionTypesController::class, 'activate'])->name('transtype.activate');

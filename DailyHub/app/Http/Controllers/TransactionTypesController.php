@@ -60,17 +60,23 @@ class TransactionTypesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TransactionTypes $transactionTypes)
+    public function update(Request $request, TransactionTypes $type)
     {
-        //
+        $type->name = $request->input('name');
+
+        $type->update();
+
+        return redirect(route('transtype.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TransactionTypes $transactionTypes)
+    public function destroy(TransactionTypes $type)
     {
-        //
+        $type->delete();
+
+        return redirect(route('transtype.index'));
     }
 
     /**

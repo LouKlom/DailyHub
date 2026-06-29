@@ -32,9 +32,10 @@
                             </a>
                                 <form method="GET" action="{{ route('tasks.edit', $task) }}">
                                     @csrf
-                                <button title="Edit" class="p-2 bg-indigo-50 text-indigo-600 rounded-lg hover:bg-indigo-100 transition text-xs font-medium">
-                                    Edit
-                                </button>
+                                    <button title="Edit" class="p-2 bg-indigo-50 text-indigo-600 rounded-lg hover:bg-indigo-100 transition text-xs font-medium">
+                                        Edit
+                                    </button>
+                                </form>
                                 <form method="POST" action="{{ route('tasks.finish', $task) }}">
                                     @csrf
                                     @method("PUT")
