@@ -12,9 +12,10 @@ class TransactionTypesController extends Controller
      */
     public function index()
     {
-        $types = TransactionTypes::all();
+        $activeTypes = TransactionTypes::where('active', TRUE)->orderBy('name', 'asc')->get();
+        $desactiveTypes = TransactionTypes::where('active', FALSE)->orderBy('name', 'asc')->get();
 
-        return view('transtype.index', compact('types'));
+        return view('transtype.index', compact(['activeTypes', 'desactiveTypes']));
     }
 
     /**
@@ -51,9 +52,9 @@ class TransactionTypesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TransactionTypes $transactionTypes)
+    public function edit(TransactionTypes $type)
     {
-        //
+        return view('transtype.edit', compact('type'));
     }
 
     /**
@@ -70,5 +71,29 @@ class TransactionTypesController extends Controller
     public function destroy(TransactionTypes $transactionTypes)
     {
         //
+    }
+
+    /**
+     * Desactivate a type, can't be used in form
+     */
+    public function desactivate(Request $request, TransactionTypes $type)
+    {
+        $type->active = 0;
+
+        $type->save();
+
+        return redirect(route('transtype.index'));
+    }
+
+    /**
+     * Activate a type, can be used in form
+     */
+    public function activate(Request $request, TransactionTypes $type)
+    {
+        $type->active = 1;
+
+        $type->save();
+
+        return redirect(route('transtype.index'));
     }
 }
